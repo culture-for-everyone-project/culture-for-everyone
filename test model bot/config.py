@@ -1,0 +1,5 @@
+API_TOKEN = "8146886960:AAFIM7tacQX-a9uWiQhdLiBVjYTI4Rtc8-4"
+MODEL_PATH = "C:\\Users\\717ll\\OneDrive\\Documents\\TEST MVP 2_1\\model_paintings.h5"
+DATASET_PATH = "C:\\Users\\717ll\\OneDrive\\Documents\\TEST MVP 2_1\\dataset_8"
+TEST_DATASET_PATH = "C:\\Users\\717ll\\OneDrive\\Documents\\TEST MVP 2_1\\test dataset"
+VALIDATION_DATASET_PATH = "C:\\Users\\717ll\\OneDrive\\Documents\\TEST MVP 2_1\\validation dataset"
