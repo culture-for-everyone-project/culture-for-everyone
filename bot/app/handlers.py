@@ -1,6 +1,9 @@
 from aiogram import F, Router
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 from aiogram.filters import CommandStart, Command
+
+from aiogram.filters import StateFilter=
+from aiogram.fsm.context import FSMContext
 
 import app.keyboards as kb
 import app.database.requests as rq
@@ -82,6 +85,38 @@ async def collection(callback: CallbackQuery):
         parse_mode="HTML"
     )
 """
+
+@router.message(F.text == 'Отправить название картины')
+async def ask_painting_name(message: Message, state: FSMContext):
+    await message.answer(
+        'Отправьте название картины.', 
+        reply_markup=ReplyKeyboardRemove()
+    )
+    await state.set_state("waiting_for_painting_name")
+
+@router.message(StateFilter("waiting_for_painting_name"))
+async def painting_name_sent(message: Message, state: FSMContext):
+    painting_name = message.text
+    painting_data = await rq.get_painting_by_name(painting_name)
+        
+    if painting_data:
+        await message.answer_photo(
+            painting_data.image_url,  
+            caption=f'<b><i>{painting_data.name}</i></b>\n\n'
+                f'<i>{painting_data.author}</i>\n'
+                f'<i>{painting_data.year}</i>\n\n'
+                f'<blockquote>{painting_data.description}</blockquote>\n\n'
+                f'<i>{painting_data.material}</i>\n'
+                f'<i>{painting_data.size}</i>',
+            parse_mode="HTML",
+            reply_markup=kb.main_keyboard
+        )
+    else:
+        await message.answer(
+            "К сожалению, информации об этой картине нет.", 
+            reply_markup=kb.main_keyboard
+        )
+    await state.clear()
 
 @router.callback_query(F.data == 'to_main_menu')
 async def to_main_menu_handler(callback: CallbackQuery):
