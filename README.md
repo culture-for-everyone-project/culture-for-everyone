@@ -94,6 +94,9 @@
 - **Описание картины**
 - **Кнопка повторного поиска**
 
+![Альтернативный текст](https://ibb.co/5Xnzyvdm)
+![Альтернативный текст](https://ibb.co/q33d2nm6)
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <h2 id="folder-structure"> :large_orange_diamond: Структура проекта</h2>
