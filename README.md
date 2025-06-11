@@ -13,9 +13,10 @@
 <h2 id="table-of-contents"> :book: Навигация</h2>
 
 <details open="open">
-  <summary>Оглавление</summary>
+  <summary>Навигация</summary>
   <ol>
     <li><a href="#about"> ➤ О проекте</a></li>
+    <li><a href="#func_description"> ➤ Описание функционала</a></li>
     <li><a href="#folder-structure"> ➤ Структура проекта</a></li>
     <li><a href="#file_description"> ➤ Описание файлов</a></li>
     <li><a href="#technology stack"> ➤ Стек технологий</a></li>
@@ -58,28 +59,33 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+
+<h2 id="func_description"> :large_orange_diamond: Описание функционала</h2>
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 <h2 id="folder-structure"> :large_orange_diamond: Структура проекта</h2>
 
-    code
-    .
-    ├── bot
+    project/
+    ├── bot/
     │   ├── handlers.py
-    |   └── keyboards.py
-    |── database
-    |   |── db_requests.py
-    |   └── db_tabels.py
-    |── datasets
-    |── models
-    |   |── class_labels.py
-    |   |── configuration.py
-    |   |── model_1.h5
-    |   |── model_2.h5
-    |   |── model_3.h5
-    |   |── model_4.h5
-    |   |── model_training.py
-    |   └── predictions.py
-    |── db.sqlite3
-    |── main.py
+    │   └── keyboards.py
+    ├── database/
+    │   ├── db_requests.py
+    │   └── db_tables.py
+    ├── datasets/
+    ├── models/
+    │   ├── class_labels.py
+    │   ├── configuration.py
+    │   ├── model_1.h5
+    │   ├── model_2.h5
+    │   ├── model_3.h5
+    │   ├── model_4.h5
+    │   ├── model_training.py
+    │   └── predictions.py
+    ├── db.sqlite3
+    └── main.py
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -95,26 +101,88 @@
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) <br>
 
-В этом проекте используются следующие пакеты с открытым исходным кодом:
-* TensorFlow
+В этом проекте используются следующие ключевые технологии и библиотеки с открытым исходным кодом:
+
+- **Python 3.9+** — основной язык программирования проекта  
+- **TensorFlow** — для обучения и использования нейросетевых моделей распознавания картин  
+- **NumPy** — работа с многомерными массивами и математические операции  
+- **OpenCV (opencv-python)** — обработка и предобработка изображений  
+- **Aiogram** — фреймворк для создания Telegram-бота на Python  
+- **Pillow** — работа с изображениями (загрузка, преобразование)  
+- **SQLAlchemy** — ORM для работы с базой данных SQLite  
+- **SQLite** — легковесная база данных для хранения информации о картинах и пользователях
+
+---
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
 <h2 id="about"> :large_orange_diamond: Требования и инструкции по запуску</h2>
+### Системные требования:
+- Python 3.9+
+- pip (установщик пакетов Python)
+- Git (опционально, для клонирования репозитория)
+
+### Зависимости:
+Убедитесь, что у вас установлен Python. Далее установите необходимые зависимости:
+
+install -r requirements.txt
+
+### Инструкция по запуску:
+Клонируйте репозиторий:
+
+git clone https://github.com/yourusername/yourproject.git
+cd yourproject
+
+Активируйте виртуальное окружение (опционально, но рекомендуется):
+
+python -m venv venv
+source venv/bin/activate  # для Linux/macOS
+venv\Scripts\activate     # для Windows
+
+Установите зависимости:
+
+pip install -r requirements.txt
+
+Заполните файл конфигурации configuration.py:
+
+BOT_TOKEN=ваш_токен_бота
+DB_PATH=sqlite:///db.sqlite3
+
+Запустите бота:
+
+python main.py
+### Работа с моделями:
+Перед использованием убедитесь, что в папке models/ находятся обученные модели model_1.h5, model_2.h5, и т.д. Если модели отсутствуют, выполните обучение, запустив:
+
+python models/model_training.py
+
+### Работа с БД:
+Скрипт автоматически создаст файл db.sqlite3, если он отсутствует. Для первоначальной инициализации таблиц используется файл database/db_tables.py.
+
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
 <h2 id="datasets"> :large_orange_diamond: Датасеты</h2>
+<p>
+Для обучения моделей использовался кастомный датасет изображений картин, собранных из коллекций музея «Эрмитаж-Урал». <br>
+Изображения были распределены по папкам (по коллекциям).
+</p>
+
+<p>Модели обучались отдельно для каждой коллекции.</p>
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
 <h2 id="links"> :large_orange_diamond: Ссылки</h2>
+
+- 📚 Презентация проекта: [ссылка](https://...)
+- 🎥 Видео-демонстрация: [YouTube](https://...)
+- 📁 Google Drive с изображениями: [ссылка](https://...)
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
