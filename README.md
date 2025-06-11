@@ -180,9 +180,9 @@ python models/model_training.py
 
 <h2 id="links"> :large_orange_diamond: Ссылки</h2>
 
-- 📚 Презентация проекта: [ссылка](https://...)
-- 🎥 Видео-демонстрация: [YouTube](https://...)
-- 📁 Google Drive с изображениями: [ссылка](https://...)
+- [Презентация проекта](https://docs.google.com/presentation/d/1Vi3PQfl1g88crGU1cfIGv1wuJnUB_Aj-/edit?usp=drive_link&ouid=103828314448526200968&rtpof=true&sd=true)
+- [Видео-демонстрация](https://drive.google.com/file/d/1yiXJ_PzVEevlAcIh1yh_5hBn-P17FouF/view?usp=drive_link)
+- [Google Drive](https://drive.google.com/drive/u/1/folders/1SqW4DWadmEfX75dRZIVHQgjVDyDJr1gC)
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -218,7 +218,6 @@ python models/model_training.py
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GitHub: <a href="https://github.com/shitnikov-a">@shitnikov-a</a> <br>
 </p>
 
-<br>
-<i>Учебный проект, реализованный в рамках дисциплины «Проектный практикум».<i>
-<i><a>Команда «Генератор букв».</a><i>
-<i><a>Июнь 2025 г.</a><i>
+<p><i>Учебный проект, реализованный в рамках дисциплины «Проектный практикум».</i></p>
+<p><i>Команда «Генератор букв».</i></p>
+<p><i>Июнь 2025 г.</i></p>
