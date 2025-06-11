@@ -2,7 +2,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Telegram_Messenger.png" alt="HAR Logo" width="80px" height="80px">
 </p>
 <h1 align="center"> КДК - Культура Для Каждого </h1>
-<h3 align="center"> Сервис для поиска информации о картинах музея "Эрмитаж-Урал" через Telegram-bot  </h3>  
+<h3 align="center"> Сервис для поиска информации о картинах музея «Эрмитаж-Урал» через Telegram-bot  </h3>  
 
 </br>
 
