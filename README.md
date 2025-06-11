@@ -7,7 +7,7 @@
 </br>
 
 <p align="center"> 
-  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjZvOTUwcml6d3YxcTZudDQxY3pwOGptY2dnd3hnYWIwZTIzbTZwZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEduGYoe2rHKbi55m/giphy.gif" alt="Sample signal" width="70%" height="70%">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjZvOTUwcml6d3YxcTZudDQxY3pwOGptY2dnd3hnYWIwZTIzbTZwZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEduGYoe2rHKbi55m/giphy.gif" alt="Sample signal" width="50%" height="50%">
 </p>
 
 <h2 id="table-of-contents"> :book: Навигация</h2>
@@ -28,25 +28,37 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="about"> :pencil: О проекте</h2>
+<h2 id="about"> :large_orange_diamond: О проекте</h2>
+<p align="justify">
+  Современные любители искусства, студенты и просто любопытные зрители сталкиваются с трудностями при попытке быстро получить информацию о картинах и художниках. <br>
+</p>
+<p align="justify">
+<ul>
+  <li>
+    При большом количестве людей в  музеях нет времени или возможности вручную искать сведения об экспонатах. <br>
+  </li>
+  <li>
+    Нахождение информации о произведения  искусства в интернете или книгах затруднительно, особенно если это малоизвестное произведение или автор.
+  </li>
+  <li>
+    Посетители сталкиваются с необходимостью быстро находить справочные данные о произведениях. 
+  </li>
+</ul>
+</p>
 
 <p align="justify"> 
-  Современные любители искусства, студенты и просто любопытные зрители сталкиваются с трудностями при попытке быстро получить информацию о картинах и художниках.
-  - При большом количестве людей в  музеях нет времени или возможности вручную искать сведения об экспонатах.
-  - Нахождение информации о произведения  искусства в интернете или книгах затруднительно, особенно если это малоизвестное произведение или автор.
-  - Посетители сталкиваются с необходимостью быстро находить справочные данные о произведениях. 
   Нужен способ открывать для себя новое, не затрачивая время на долгий поиск.
-
+</p>
+<p align="justify"> 
   Для устранения указанных проблем мы разрабатываем Telegram-бота, который позволяет пользователю узнать информацию о картинах по фотографии и не только.
   Достаточно отправить фото или название картины, чтобы получить краткую справку: название, автор, год создания, описание.
   Если пользователь не знает название или не может сделать фотографию (например, из-за большого скопления людей возле экспоната), он может воспользоваться встроенным каталогом. Все картины в базе распределены по коллекциям  музея. 
-
 </p>
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="folder-structure"> :large_blue_diamond: Структура проекта</h2>
+<h2 id="folder-structure"> :large_orange_diamond: Структура проекта</h2>
 
     code
     .
@@ -73,13 +85,13 @@
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="file_description"> :pencil: Описание файлов</h2>
+<h2 id="file_description"> :large_orange_diamond: Описание файлов</h2>
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="requirements_instruction"> :large_blue_diamond: Cтек технологий</h2>
+<h2 id="requirements_instruction"> :large_orange_diamond: Cтек технологий</h2>
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) <br>
 
@@ -90,28 +102,28 @@
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="about"> :pencil: Требования и инструкции по запуску</h2>
+<h2 id="about"> :large_orange_diamond: Требования и инструкции по запуску</h2>
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="datasets"> :floppy_disk: Датасеты</h2>
+<h2 id="datasets"> :large_orange_diamond: Датасеты</h2>
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="links"> :books: Ссылки</h2>
+<h2 id="links"> :large_orange_diamond: Ссылки</h2>
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="contributors"> :scroll: Участники</h2>
+<h2 id="contributors"> :large_orange_diamond: Участники</h2>
 
 <p>
-  :mortar_board: <i> Все участники этого проекта являются студентами программы <a href="https://programms.edu.urfu.ru/ru/10591/"> «Алгоритмы искусственного интеллекта»</a> <b>@</b> <a href="https://rtf.urfu.ru/ru/"> Института радиоэлектроники и информационных технологий — РТФ Уральского федерального университета имени Б. Н. Ельцина.</a></i> <br> <br>
+  :mortar_board: <i> Все участники этого проекта являются студентами программы <a href="https://programms.edu.urfu.ru/ru/10591/"> «Алгоритмы искусственного интеллекта»</a> <b> </b> <a href="https://rtf.urfu.ru/ru/"> Института радиоэлектроники и информационных технологий — РТФ Уральского федерального университета имени Б. Н. Ельцина.</a></i> <br> <br>
   
   :diamond_shape_with_a_dot_inside: <b>Молчанова Полина Алексеевна</b> <br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email: <a>07lllllll07lllllll@gmail.com</a> <br>
@@ -139,6 +151,6 @@
 </p>
 
 <br>
-<i>Учебный проект, реализованный в рамках дисциплины «Проектный практикум».<i>
-<i><a>Команда «Генератор букв»</a><i>
+<i>Учебный проект, реализованный в рамках дисциплины «Проектный практикум».\n<i>
+<i><a>Команда «Генератор букв»\n</a><i>
 <i><a>Июнь 2025 г.</a><i>
