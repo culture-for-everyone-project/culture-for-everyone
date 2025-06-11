@@ -7,7 +7,7 @@
 </br>
 
 <p align="center"> 
-  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjZvOTUwcml6d3YxcTZudDQxY3pwOGptY2dnd3hnYWIwZTIzbTZwZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEduGYoe2rHKbi55m/giphy.gif" alt="Sample signal" width="30%" height="30%">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjZvOTUwcml6d3YxcTZudDQxY3pwOGptY2dnd3hnYWIwZTIzbTZwZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEduGYoe2rHKbi55m/giphy.gif" alt="Sample signal" width="40%" height="40%">
 </p>
 
 <h2 id="table-of-contents"> :book: Навигация</h2>
