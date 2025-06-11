@@ -94,8 +94,7 @@
 - **Описание картины**
 - **Кнопка повторного поиска**
 
-![Альтернативный текст](https://ibb.co/5Xnzyvdm)
-![Альтернативный текст](https://ibb.co/q33d2nm6)
+![Альтернативный текст](https://i.ibb.co/PvvNVY1k/photo-2025-06-12-00-46-16-2.jpg)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
