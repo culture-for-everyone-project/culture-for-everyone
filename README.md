@@ -131,33 +131,34 @@ install -r requirements.txt
 
 ### Инструкция по запуску:
 Клонируйте репозиторий:
-
+```
 git clone https://github.com/yourusername/yourproject.git
 cd yourproject
-
+```
 Активируйте виртуальное окружение (опционально, но рекомендуется):
-
+```
 python -m venv venv
 source venv/bin/activate  # для Linux/macOS
 venv\Scripts\activate     # для Windows
-
+```
 Установите зависимости:
-
+```
 pip install -r requirements.txt
-
+```
 Заполните файл конфигурации configuration.py:
-
+```
 BOT_TOKEN=ваш_токен_бота
 DB_PATH=sqlite:///db.sqlite3
-
+```
 Запустите бота:
-
+```
 python main.py
+```
 ### Работа с моделями:
 Перед использованием убедитесь, что в папке models/ находятся обученные модели model_1.h5, model_2.h5, и т.д. Если модели отсутствуют, выполните обучение, запустив:
-
+```
 python models/model_training.py
-
+```
 ### Работа с БД:
 Скрипт автоматически создаст файл db.sqlite3, если он отсутствует. Для первоначальной инициализации таблиц используется файл database/db_tables.py.
 
