@@ -93,7 +93,8 @@
 - **Аудиолекция** (если доступна) и ссылка на сайт со всеми аудиолекциями
 - **Описание картины**
 - **Кнопка повторного поиска**
-<img src="https://i.ibb.co/PvvNVY1k/photo-2025-06-12-00-46-16-2.jpg" width="300px" height="400px">
+<img src="https://i.ibb.co/1Ydp5K31/photo-2025-06-12-00-46-16.jpg" height="640px" height="640px">
+<img src="https://i.ibb.co/PvvNVY1k/photo-2025-06-12-00-46-16-2.jpg" width="305px" height="640px">
 ![Альтернативный текст](https://i.ibb.co/PvvNVY1k/photo-2025-06-12-00-46-16-2.jpg)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
