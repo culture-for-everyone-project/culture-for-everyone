@@ -93,6 +93,17 @@
 
 <h2 id="file_description"> :large_orange_diamond: Описание файлов</h2>
 
+- `main.py` — запускает Telegram-бота
+- `bot/handlers.py` — логика диалога с пользователем
+- `bot/keyboards.py` — кнопки для Telegram-интерфейса
+- `database/db_requests.py` — функции добавления и получения данных из БД
+- `database/db_tables.py` — инициализация таблиц MySQL/SQLite
+- `models/predictions.py` — загрузка модели и получение предсказаний
+- `models/model_training.py` — обучение MobileNetV2 на картинках
+- `models/configuration.py` — параметры обучения
+- `models/class_labels.py` — соответствие классов и названий картин
+- `model_X.h5` — сохранённые модели для разных коллекций
+
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -128,7 +139,7 @@
 ### Зависимости:
 Убедитесь, что у вас установлен Python. Далее установите необходимые зависимости:
 
-install -r requirements.txt
+`install -r requirements.txt`
 
 ### Инструкция по запуску:
 Клонируйте репозиторий:
@@ -146,7 +157,7 @@ venv\Scripts\activate     # для Windows
 ```
 pip install -r requirements.txt
 ```
-Заполните файл конфигурации configuration.py:
+Заполните файл конфигурации `configuration.py`:
 ```
 BOT_TOKEN=ваш_токен_бота
 DB_PATH=sqlite:///db.sqlite3
@@ -156,12 +167,12 @@ DB_PATH=sqlite:///db.sqlite3
 python main.py
 ```
 ### Работа с моделями:
-Перед использованием убедитесь, что в папке models/ находятся обученные модели model_1.h5, model_2.h5, и т.д. Если модели отсутствуют, выполните обучение, запустив:
+Перед использованием убедитесь, что в папке models/ находятся обученные модели `model_1.h5`, `model_2.h5`, и т.д. Если модели отсутствуют, выполните обучение, запустив:
 ```
 python models/model_training.py
 ```
 ### Работа с БД:
-Скрипт автоматически создаст файл db.sqlite3, если он отсутствует. Для первоначальной инициализации таблиц используется файл database/db_tables.py.
+Скрипт автоматически создаст файл `db.sqlite3`, если он отсутствует. Для первоначальной инициализации таблиц используется файл `database/db_tables.py`.
 
 
 
