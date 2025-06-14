@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# culture-for-everyone
+=======
 <p align="center"> 
   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Telegram_Messenger.png" alt="HAR Logo" width="80px" height="80px">
 </p>
@@ -277,3 +280,4 @@ python db_tables.py
   Июнь 2025 г.
 </i>
 
+>>>>>>> e48853b (Initial commit)
