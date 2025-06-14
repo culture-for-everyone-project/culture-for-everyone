@@ -1,10 +1,9 @@
 import asyncio
-
 from aiogram import Bot, Dispatcher
 
-from bot.handlers import router
-from models.configuration import BOT_TOKEN
-from database.db_tabels import init_db
+from app.handlers import router
+from app.config import BOT_TOKEN
+from app.database.models import init_db
 
 
 async def main():
@@ -20,3 +19,4 @@ if __name__ == '__main__':
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
         print('Бот выключен.')
+
