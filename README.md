@@ -244,7 +244,7 @@ python db_tables.py
 <h2 id="contributors"> :bust_in_silhouette: Участники</h2>
 
 <p>
-  :mortar_board: <i> Все участники этого проекта являются студентами программы <a href="https://programms.edu.urfu.ru/ru/10591/"> «Алгоритмы искусственного интеллекта»</a> <b> </b> <a href="https://rtf.urfu.ru/ru/"> Института радиоэлектроники и информационных технологий — РТФ Уральского федерального университета имени Б. Н. Ельцина.</a></i> <br> <br>
+  <i> Все участники этого проекта являются студентами программы <a href="https://programms.edu.urfu.ru/ru/10591/"> «Алгоритмы искусственного интеллекта»</a> <b> </b> <a href="https://rtf.urfu.ru/ru/"> Института радиоэлектроники и информационных технологий — РТФ Уральского федерального университета имени Б. Н. Ельцина.</a></i> <br> <br>
   
   :diamond_shape_with_a_dot_inside: <b>Молчанова Полина Алексеевна</b> <br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email: <a>07lllllll07lllllll@gmail.com</a> <br>
