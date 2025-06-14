@@ -29,7 +29,7 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="about"> :diamonds: О проекте</h2>
+<h2 id="about"> :small_orange_diamond: О проекте</h2>
 <p align="justify">
   Современные любители искусства, студенты и просто любопытные зрители часто сталкиваются с трудностями при попытке быстро получить информацию о картинах и художниках в музейных пространствах. <br>
 </p>
@@ -57,7 +57,7 @@
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="func_description"> :memo: Описание функционала</h2>
+<h2 id="func_description"> :small_orange_diamond: Описание функционала</h2>
 
 1. **Найти картину по коллекциям музея**  
    - Пользователю отправляется список доступных коллекций музея.  
@@ -96,7 +96,7 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="folder-structure"> :card_index_dividers: Структура проекта</h2>
+<h2 id="folder-structure"> :small_orange_diamond: Структура проекта</h2>
 
     project/
     ├── bot/
@@ -122,7 +122,7 @@
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="file_description"> :card_index: Описание файлов</h2>
+<h2 id="file_description"> :small_orange_diamond: Описание файлов</h2>
 
 - `main.py` — запускает Telegram-бота
 - `bot/handlers.py` — логика диалога с пользователем
@@ -139,7 +139,7 @@
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="requirements_instruction"> :large_orange_diamond: Cтек технологий</h2>
+<h2 id="requirements_instruction"> :small_orange_diamond: Cтек технологий</h2>
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) <br>
 
@@ -159,7 +159,7 @@
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="about"> :exclamation: Требования и инструкции по запуску</h2>
+<h2 id="about"> :small_orange_diamond: Требования и инструкции по запуску</h2>
 
 ### Системные требования:
 - **Python 3.9+**
@@ -212,7 +212,7 @@ python db_tables.py
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="datasets"> :framed_picture: Датасеты</h2>
+<h2 id="datasets"> :small_orange_diamond: Датасеты</h2>
 <p>
 Для обучения моделей был самостоятельно собран кастомный датасет по 4 коллекциям музея «Эрмитаж-Урал».
 Каждая коллекция представлена отдельной папкой, в которой содержатся три подкаталога:
@@ -230,7 +230,7 @@ python db_tables.py
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="links"> :globe_with_meridians: Ссылки</h2>
+<h2 id="links"> :small_orange_diamond: Ссылки</h2>
 
 - [Презентация проекта](https://docs.google.com/presentation/d/1Vi3PQfl1g88crGU1cfIGv1wuJnUB_Aj-/edit?usp=drive_link&ouid=103828314448526200968&rtpof=true&sd=true)
 - [Видео-демонстрация](https://drive.google.com/file/d/1yiXJ_PzVEevlAcIh1yh_5hBn-P17FouF/view?usp=drive_link)
@@ -241,11 +241,11 @@ python db_tables.py
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-<h2 id="contributors"> :bust_in_silhouette: Участники</h2>
+<h2 id="contributors"> :small_orange_diamond: Участники</h2>
 
 <p>
-  <i> Все участники этого проекта являются студентами программы <a href="https://programms.edu.urfu.ru/ru/10591/"> «Алгоритмы искусственного интеллекта»</a> <b> </b> <a href="https://rtf.urfu.ru/ru/"> Института радиоэлектроники и информационных технологий — РТФ Уральского федерального университета имени Б. Н. Ельцина.</a></i> <br> <br>
-  
+  <i>:mortar_board: Все участники этого проекта являются студентами программы <a href="https://programms.edu.urfu.ru/ru/10591/"> «Алгоритмы искусственного интеллекта»</a> <b> </b> <a href="https://rtf.urfu.ru/ru/"> Института радиоэлектроники и информационных технологий — РТФ Уральского федерального университета имени Б. Н. Ельцина.</a></i> <br> <br>
+   
   :diamond_shape_with_a_dot_inside: <b>Молчанова Полина Алексеевна</b> <br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email: <a>07lllllll07lllllll@gmail.com</a> <br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GitHub: <a href="https://github.com/aaaaaaa0">@aaaaaaa0</a> <br>
