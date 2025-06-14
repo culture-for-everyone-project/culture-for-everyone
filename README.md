@@ -214,16 +214,15 @@ python db_tables.py
 
 <h2 id="datasets"> :large_orange_diamond: Датасеты</h2>
 <p>
-Для обучения моделей был самостоятельно собран кастомный датасет по 4 коллекциям музея [«Эрмитаж-Урал»](https://i-z-o.art/constitutor/centr-ermitazh-ural/).  
+Для обучения моделей был самостоятельно собран кастомный датасет по 4 коллекциям музея «Эрмитаж-Урал».
+Каждая коллекция представлена отдельной папкой, в которой содержатся три подкаталога:
 
-Каждая коллекционная папка включает в себя 3 подкаталога:
 - `ds` — основной набор изображений для обучения модели  
 - `ds_test` — изображения для тестирования  
-- `ds_validation` — изображения для валидации модели 
-Модели обучаются отдельно для каждой коллекции, что позволяет повысить точность классификации внутри определённого набора данных.
+- `ds_validation` — изображения для валидации модели
 </p>
 
-<p>Модели обучались отдельно для каждой коллекции.</p>
+<p>Модели обучаются отдельно для каждой коллекции, что позволяет повысить точность классификации внутри определённого набора данных.</p>
 Скачать датасеты можно по ссылке:
 
 - 📁 [Яндекс Диск — Датасеты картин](https://disk.yandex.ru/d/ZMdzPGthYJdx5w)
@@ -236,6 +235,7 @@ python db_tables.py
 - [Презентация проекта](https://docs.google.com/presentation/d/1Vi3PQfl1g88crGU1cfIGv1wuJnUB_Aj-/edit?usp=drive_link&ouid=103828314448526200968&rtpof=true&sd=true)
 - [Видео-демонстрация](https://drive.google.com/file/d/1yiXJ_PzVEevlAcIh1yh_5hBn-P17FouF/view?usp=drive_link)
 - [Google Drive](https://drive.google.com/drive/u/1/folders/1SqW4DWadmEfX75dRZIVHQgjVDyDJr1gC)
+- [Эрмитаж-Урал](https://i-z-o.art/constitutor/centr-ermitazh-ural/)
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
