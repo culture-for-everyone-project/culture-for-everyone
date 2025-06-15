@@ -124,16 +124,23 @@
 
 <h2 id="file_description"> :small_orange_diamond: Описание файлов</h2>
 
-- `main.py` — запускает Telegram-бота
-- `bot/handlers.py` — логика диалога с пользователем
-- `bot/keyboards.py` — кнопки для Telegram-интерфейса
-- `database/db_requests.py` — функции добавления и получения данных из БД
-- `database/db_tables.py` — инициализация таблиц MySQL/SQLite
-- `models/predictions.py` — загрузка модели и получение предсказаний
-- `models/model_training.py` — обучение MobileNetV2 на картинках
-- `models/configuration.py` — параметры обучения
-- `models/class_labels.py` — соответствие классов и названий картин
-- `model_X.h5` — сохранённые модели для разных коллекций
+- `bot\handlers.py` — Обработчики сообщений и команд для бота  
+- `bot\keyboards.py` — Генерация клавиатур и кнопок для бота  
+- `bot\predictions.py` — Интеграция модели предсказаний с ботом
+  
+- `database\db_requests.py` — Запросы к базе данных  
+- `database\db_tables.py` — Определение таблиц и моделей БД
+  
+- `models\class_labels.py` — Метки классов для классификации  
+- `models\model_` - Обученная модель машинного обучения  
+- `models\models_config.py` - Конфигурации моделей ML
+  
+- `train\model_training.py` — Скрипт для обучения модели
+  
+- `configuration.py` — Основные настройки и конфигурации проекта  
+- `main.py` — Главный исполняемый файл для запуска приложения  
+- `ds.sqlite3` — Файл базы данных SQLite3  
+- `requirements.txt` - Список зависимостей Python  
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
