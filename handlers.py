@@ -1,20 +1,14 @@
 import logging
 import os
-
 import bot.keyboards as kb
 import database.db_requests as rq
-
 from aiogram import Bot, F, Router
 from aiogram.filters import CommandStart, Command, StateFilter, CommandObject
 from aiogram.enums import ContentType
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
-
-from models.predictions import predict_class
-
-
-
+from bot.predictions import predict_class
 
 
 router = Router()
@@ -133,7 +127,7 @@ async def to_main_menu_handler(callback: CallbackQuery):
 
 @router.message(F.text == 'Найти картину по названию')
 async def ask_painting_name(message: Message, state: FSMContext):
-    await message.answer('Пожалуйста, отправьте название картины.',
+    await message.answer('🖼️ Теперь отправьте название картины.',
         reply_markup=kb.main_keyboard,
         callback_data='search_by_name'
     )
@@ -195,7 +189,7 @@ async def painting_name_sent(message: Message, state: FSMContext):
 @router.callback_query(F.data == 'to_search_by_name')
 async def back_to_search_by_name(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer(
-        "Введите название картины:",
+        "🖼️ Теперь отправьте название картины.",
     )
     await state.set_state("waiting_for_new_painting_name")
     await callback.answer()
@@ -276,12 +270,12 @@ async def collection_chosen_for_photo(callback: CallbackQuery, state: FSMContext
     collection_id = int(callback.data.split('_')[2])  # теперь индекс 2
     await state.update_data(collection_id=collection_id)
 
-    await callback.message.answer('Теперь отправьте фотографию.')
+    await callback.message.answer('📷 Теперь отправьте фотографию картины.')
     await state.set_state(PhotoSearchState.waiting_for_photo)
     await callback.answer()
 
 
-# обработка фото
+# Обработка фото
 @router.message(StateFilter(PhotoSearchState.waiting_for_photo), F.content_type == ContentType.PHOTO)
 async def handle_photo_with_collection(message: Message, state: FSMContext, bot: Bot):
     file_path = None
@@ -297,8 +291,8 @@ async def handle_photo_with_collection(message: Message, state: FSMContext, bot:
 
         print(f"Файл загружен: {file_path}")
 
-        # предсказание и поиск
-        painting_prediction_name = predict_class(file_path, collection_id) # predict_func(file_path, collection_id)
+        # Предсказание и поиск
+        painting_prediction_name = predict_class(file_path, collection_id) 
         print(f"Распознанная картина: {painting_prediction_name}")
         painting_id = await rq.get_painting_id_by_prediction(painting_prediction_name)
 
@@ -354,7 +348,7 @@ async def handle_photo_with_collection(message: Message, state: FSMContext, bot:
         await state.clear()
 
 
-# обработка кнопки "Найти другую картину по фотографии"
+# Обработка кнопки "Найти другую картину по фотографии"
 @router.callback_query(F.data == 'to_search_by_photo')
 async def to_photo_search_again(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer('Выберите коллекцию для поиска:',
