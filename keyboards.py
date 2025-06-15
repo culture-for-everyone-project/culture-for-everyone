@@ -13,6 +13,7 @@ main_keyboard = ReplyKeyboardMarkup(
     input_field_placeholder='Выберите пункт меню...'
 )
 
+
 # клавиатура для выбора коллекции
 async def collections(mode: str = "default"):
     all_collections = await get_collections()
@@ -25,7 +26,7 @@ async def collections(mode: str = "default"):
 
         keyboard.add(InlineKeyboardButton(text=collection.name, callback_data=cb_data))
 
-    keyboard.add(InlineKeyboardButton(text='⬅️ На главную', callback_data='to_main_menu'))
+    keyboard.add(InlineKeyboardButton(text='⬅️ Главное меню', callback_data='to_main_menu'))
     return keyboard.adjust(1).as_markup()
 
 
