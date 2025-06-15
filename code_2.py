@@ -3,8 +3,6 @@ import cv2
 import numpy as np
 from PIL import Image, ImageEnhance, ImageFilter
 
-
-
 def apply_filters(input_path, output_path):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
@@ -24,6 +22,12 @@ def apply_filters(input_path, output_path):
                 ("sharpness", adjust_sharpness(original, 2.0)),
                 ("color", adjust_color(original, 1.5)),
                 ("sepia", apply_sepia(original)) 
+                ("red", apply_color_tone(original, (255, 100, 100))),
+                ("yellow", apply_color_tone(original, (255, 255, 100))),
+                ("green", apply_color_tone(original, (100, 255, 100))),
+                ("cyan", apply_color_tone(original, (100, 255, 255))),
+                ("blue", apply_color_tone(original, (100, 100, 255))),
+                ("purple", apply_color_tone(original, (200, 100, 255)))
             ]
             
             # Сохраняем все варианты
@@ -88,6 +92,18 @@ def apply_sepia(image):
             pixels[px, py] = (min(255, tr), min(255, tg), min(255, tb))
     
     return image
+    
+def apply_color_tone(image, tone_color):
+    """Применяет цветовой оттенок к изображению"""
+    img_array = np.array(image)
+    if len(img_array.shape) == 2:
+        img_array = np.stack((img_array,)*3, axis=-1)
+    normalized = img_array.astype(np.float32) / 255.0
+    tone = np.array(tone_color, dtype=np.float32) / 255.0
+    tone_filter = np.ones_like(normalized) * tone
+    tinted = (normalized * 0.7 + tone_filter * 0.3)
+    tinted = np.clip(tinted * 255, 0, 255).astype(np.uint8)
+    return Image.fromarray(tinted)
 
 if __name__ == "__main__":
     input_folder = r"input_files\70"  
