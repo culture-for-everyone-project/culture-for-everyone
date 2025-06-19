@@ -1,7 +1,7 @@
-from keras.models import load_model
 from pathlib import Path
+from keras.models import load_model
 
-BASE_DIR = Path(__file__).resolve().parent.parent  
+BASE_DIR = Path(__file__).resolve().parent.parent
 MODELS_DIR = BASE_DIR / "models"
 
 MODEL_PATH_1 = MODELS_DIR / "model_1.h5"
@@ -18,5 +18,5 @@ MODELS = {
     1: model_1,
     2: model_2,
     4: model_4,
-    5: model_5
+    5: model_5,
 }
