@@ -29,7 +29,7 @@ train_datagen = ImageDataGenerator(
     height_shift_range=0.2,
     shear_range=0.2,
     horizontal_flip=True,
-    fill_mode="nearest"
+    fill_mode="nearest",
 )
 
 val_datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
@@ -43,7 +43,7 @@ train = train_datagen.flow_from_directory(
     class_mode="categorical",
     batch_size=32,
     shuffle=True,
-    seed=123
+    seed=123,
 )
 
 # Словарь вида: {'501 яблоко': 0, '502 груша': 1, ...}
@@ -62,7 +62,7 @@ validation = val_datagen.flow_from_directory(
     class_mode="categorical",
     batch_size=32,
     shuffle=True,
-    seed=123
+    seed=123,
 )
 
 test = test_datagen.flow_from_directory(
@@ -71,7 +71,7 @@ test = test_datagen.flow_from_directory(
     color_mode="rgb",
     class_mode="categorical",
     batch_size=32,
-    shuffle=False
+    shuffle=False,
 )
 
 # Количество классов
@@ -82,7 +82,7 @@ base_model = MobileNetV2(
     input_shape=(img_height, img_width, 3),
     include_top=False,
     weights='imagenet',
-    pooling='avg'
+    pooling='avg',
 )
 base_model.trainable = False
 
@@ -103,23 +103,25 @@ early_stopping = EarlyStopping(
 )
 
 checkpoint = ModelCheckpoint(
-    'D:\\new\\models\\model_new_5.h5', # Путь к сохранению модели
+    'D:\\new\\models\\model_new_5.h5',  # Путь к сохранению модели
     monitor='val_loss',
     mode='min',
-    save_best_only=True
+    save_best_only=True,
 )
 
 # Компиляция модели
-model.compile(optimizer=Adam(learning_rate=0.0001),
-              loss='categorical_crossentropy',
-              metrics=['accuracy'])
+model.compile(
+    optimizer=Adam(learning_rate=0.0001),
+    loss='categorical_crossentropy',
+    metrics=['accuracy'],
+)
 
 # Обучение
 history = model.fit(
     train,
     validation_data=validation,
     epochs=20,
-    callbacks=[early_stopping, checkpoint]
+    callbacks=[early_stopping, checkpoint],
 )
 
 
@@ -147,7 +149,7 @@ plt.show()
 
 # Оценка
 eval_loss, eval_accuracy = model.evaluate(test)
-print(f"Evaluation accuracy: {eval_accuracy*100:.2f}%")
+print(f"Evaluation accuracy: {eval_accuracy * 100:.2f}%")
 
 # Предсказания
 pred_probs = model.predict(test)
@@ -160,4 +162,4 @@ true_labels = [labels[k] for k in test.classes]
 
 # Accuracy
 acc = accuracy_score(true_labels, pred_labels)
-print(f'Accuracy on the test set: {100*acc:.2f}%')
+print(f'Accuracy on the test set: {100 * acc:.2f}%')
