@@ -98,42 +98,35 @@
 
 <h2 id="folder-structure"> :small_orange_diamond: Структура проекта</h2>
 
+   
     project/
+    ├── application/
+    │   ├── configuration.py         # Настройки и конфигурации проекта (токены, пути и т.д.)
+    │   ├── train_h5.py              # Скрипт обучения моделей и сохранения их в формате .h5
+    │   └── train_keras.py           # Альтернативный скрипт обучения модели в формате .keras
+    |
     ├── bot/
-    │   ├── handlers.py
-    │   └── keyboards.py
+    │   ├── handlers.py              # Основная логика обработки сообщений от пользователей
+    │   ├── keyboards.py             # Кастомные клавиатуры Telegram-бота
+    │   └── predictions.py           # Работа с моделями, предсказания по изображениям
+    |
     ├── database/
-    │   ├── db_requests.py
-    │   └── db_tables.py
-    ├── datasets/
+    │   ├── db_requests.py           # Асинхронные запросы к базе данных
+    │   └── db_tables.py             # Описание таблиц SQLAlchemy и инициализация БД
+    |
     ├── models/
-    │   ├── class_labels.py
-    │   ├── configuration.py
-    │   ├── model_1.h5
-    │   ├── model_2.h5
-    │   ├── model_3.h5
-    │   ├── model_4.h5
-    │   ├── model_training.py
-    │   └── predictions.py
-    ├── db.sqlite3
-    └── main.py
+    │   ├── class_labels.py          # Список меток классов для моделей
+    │   ├── model_1.h5               # Обученная модель (коллекция 1)
+    │   ├── model_2.h5               # Обученная модель (коллекция 2)
+    │   ├── model_3.h5               # Обученная модель (коллекция 3)
+    │   ├── model_4.h5               # Обученная модель (коллекция 4)
+    │   └── models_config.py         # Загрузка моделей и маршрутизация по коллекциям
+    |
+    ├── db.sqlite3                   # Локальная база данных SQLite
+    ├── main.py                      # Точка входа, запуск Telegram-бота
+    ├── requirements.txt             # Список зависимостей проекта
 
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-
-<h2 id="file_description"> :small_orange_diamond: Описание файлов</h2>
-
-- `main.py` — запускает Telegram-бота
-- `bot/handlers.py` — логика диалога с пользователем
-- `bot/keyboards.py` — кнопки для Telegram-интерфейса
-- `database/db_requests.py` — функции добавления и получения данных из БД
-- `database/db_tables.py` — инициализация таблиц MySQL/SQLite
-- `models/predictions.py` — загрузка модели и получение предсказаний
-- `models/model_training.py` — обучение MobileNetV2 на картинках
-- `models/configuration.py` — параметры обучения
-- `models/class_labels.py` — соответствие классов и названий картин
-- `model_X.h5` — сохранённые модели для разных коллекций
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
