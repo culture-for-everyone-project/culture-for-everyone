@@ -46,10 +46,10 @@ train = train_datagen.flow_from_directory(
     seed=123,
 )
 
-# Словарь вида: {'501 яблоко': 0, '502 груша': 1, ...}
+# Словарь вида: {'501 название': 0, '502 название': 1, ...}
 class_indices = train.class_indices
 
-# Отсортируем по индексу, чтобы понять в каком порядке модель запомнила классы:
+# Сортировка по индексу, чтобы понять в каком порядке модель запомнила классы:
 print("Классы датасета:")
 for class_name, index in sorted(class_indices.items(), key=lambda x: x[1]):
     print(f"Класс {index}: {class_name}")
@@ -86,7 +86,7 @@ base_model = MobileNetV2(
 )
 base_model.trainable = False
 
-# Добавим классификатор
+# Классификатор
 x = Dense(128, activation='relu')(base_model.output)
 x = Dense(128, activation='relu')(x)
 outputs = Dense(num_classes, activation='softmax')(x)
@@ -103,7 +103,7 @@ early_stopping = EarlyStopping(
 )
 
 checkpoint = ModelCheckpoint(
-    'D:\\new\\models\\model_new_5.h5',  # Путь к сохранению модели
+    '___',  # Путь к сохранению модели
     monitor='val_loss',
     mode='min',
     save_best_only=True,
