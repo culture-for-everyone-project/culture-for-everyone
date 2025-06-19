@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score
 from applications.configuration import DATASET_PATH, TEST_DATASET_PATH, VALIDATION_DATASET_PATH
 import json
 
-# Пути к директориям
+# Директории
 train_dir = pathlib.Path(DATASET_PATH)
 val_dir = pathlib.Path(VALIDATION_DATASET_PATH)
 test_dir = pathlib.Path(TEST_DATASET_PATH)
@@ -33,7 +33,7 @@ data_augmentation = keras.Sequential(
 
 def prepare_dataset(directory, shuffle=False, augment=False):
     """Функция для загрузки и предобработки данных"""
-    # Сначала получаем генератор для сохранения class_names
+    # Сначала генератор для сохранения class_names
     gen = keras.utils.image_dataset_from_directory(
         directory,
         image_size=(img_height, img_width),
@@ -45,7 +45,7 @@ def prepare_dataset(directory, shuffle=False, augment=False):
     # Сохраняем имена классов
     class_names = gen.class_names
 
-    # Создаем dataset
+    # Создание dataset
     ds = keras.utils.image_dataset_from_directory(
         directory,
         image_size=(img_height, img_width),
@@ -72,7 +72,7 @@ train_ds, train_class_names = prepare_dataset(train_dir, shuffle=True, augment=T
 val_ds, _ = prepare_dataset(val_dir, shuffle=True)
 test_ds, _ = prepare_dataset(test_dir)
 
-# Создаем правильное соответствие классов
+# Создание соответствия классов (папка=название картины)
 label_map = {i: name for i, name in enumerate(train_class_names)}
 num_classes = len(train_class_names)
 
@@ -131,10 +131,10 @@ print(f"Evaluation accuracy: {eval_accuracy * 100:.2f}%")
 pred = model.predict(test_ds)
 pred_classes = np.argmax(pred, axis=1)
 
-# Получаем истинные метки
+# Получение истинных меток
 true_classes = np.concatenate([y.numpy().argmax(axis=1) for x, y in test_ds], axis=0)
 
-# Преобразуем индексы в имена классов
+# Преобразование индексов в имена классов
 true_labels = [label_map[i] for i in true_classes]
 pred_labels = [label_map[i] for i in pred_classes]
 
@@ -142,6 +142,6 @@ pred_labels = [label_map[i] for i in pred_classes]
 acc = accuracy_score(true_labels, pred_labels)
 print(f"Accuracy on the test set: {acc * 100:.2f}%")
 
-# Сохраняем соответствие классов
+# Сохранение соответствия классов классов
 with open("class_indices.json", "w") as f:
     json.dump(label_map, f, indent=4)
