@@ -4,7 +4,6 @@ import tensorflow as tf
 from models.models_config import MODELS
 from models.class_labels import CLASS_LABELS
 
-
 logging.basicConfig(level=logging.INFO)
 
 
@@ -22,7 +21,7 @@ def predict_class(img_path: str, collection_id: int):
         if model is None:
             logging.error(f"Модель для коллекции {collection_id} не найдена.")
             return "Не удалось распознать изображение."
-        prediction = model.predict(img_array) # 
+        prediction = model.predict(img_array)
         class_index = np.argmax(prediction)
         class_label = CLASS_LABELS.get(collection_id)
         if class_label is None:
