@@ -14,7 +14,7 @@ main_keyboard = ReplyKeyboardMarkup(
 )
 
 
-# клавиатура для выбора коллекции
+# Клавиатура для выбора коллекции
 async def collections(mode: str = "default"):
     all_collections = await get_collections()
     keyboard = InlineKeyboardBuilder()
@@ -30,7 +30,7 @@ async def collections(mode: str = "default"):
     return keyboard.adjust(1).as_markup()
 
 
-# клавиатура для выбора картин в коллекции
+# Клавиатура для выбора картин в коллекции
 async def paintings(category_id):
     all_paintings = await get_collection_painting(category_id)
 
@@ -39,9 +39,9 @@ async def paintings(category_id):
 
     text_lines = ["🎨 <b>Картины в коллекции:</b>\n"]
     for painting in all_paintings:
-        
         text_lines.append(
-            f"• <a href='https://t.me/culture_for_everyone_bot?start=painting_{painting.id}'>{painting.name}</a>"
+            f"• <a href='https://t.me/culture_for_everyone_bot?start=painting_{painting.id}'>"
+            f"{painting.name}</a>"
         )
 
     text = "\n".join(text_lines)
