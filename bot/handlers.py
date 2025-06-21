@@ -1,31 +1,32 @@
 import logging
 import os
+
 import bot.keyboards as kb
 import database.db_requests as rq
 from aiogram import Bot, F, Router
-from aiogram.filters import CommandStart, Command, StateFilter, CommandObject
 from aiogram.enums import ContentType
-from aiogram.types import (
-    Message,
-    CallbackQuery,
-    InlineKeyboardMarkup,
-    InlineKeyboardButton,
-)
+from aiogram.filters import Command, CommandStart, CommandObject, StateFilter
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import StatesGroup, State
+from aiogram.fsm.state import State, StatesGroup
+from aiogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    Message,
+)
+from applications.configuration import COLLECTION_NAMES
 from bot.predictions import predict_class
-
 
 router = Router()
 
 
-# =====================================================================
+# =====================================================================================================================================
 # COMMANDS
-# =====================================================================
+# =====================================================================================================================================
 
 
 # /start_bot
-@router.message(Command('start_bot'))
+@router.message(Command("start_bot"))
 async def cmd_start_bot(message: Message):
     await rq.set_user(message.from_user.id)
     await message.answer(
@@ -37,15 +38,14 @@ async def cmd_start_bot(message: Message):
 @router.message(Command("add_info"))
 async def cmd_add_info(message: Message):
     await message.answer(
-        "🌐|Официальный сайт «Эрмитаж-Урал»: "
-        "https://i-z-o.art/constitutor/centr-ermitazh-ural/\n"
+        "🌐|Официальный сайт «Эрмитаж-Урал»: https://i-z-o.art/constitutor/centr-ermitazh-ural/\n"
         "🎧|Все аудиолекции доступны по ссылке: https://izo.t2.ru/museum/14"
     )
 
 
-# =====================================================================
+# =====================================================================================================================================
 # MAIN MENU - 1 [НАЙТИ КАРТИНУ ПО КОЛЛЕКЦИИ МУЗЕЯ]
-# =====================================================================
+# =====================================================================================================================================
 
 
 @router.message(CommandStart(deep_link=True))
@@ -105,39 +105,42 @@ async def catalog(message: Message):
 
 @router.callback_query(F.data.startswith("collection_"))
 async def collection(callback: CallbackQuery):
-    await callback.answer("Вы выбрали коллекцию.")
+    await callback.answer("Вы выбрали коллекцию")
 
     collection_id = int(callback.data.split("_")[1])
     text, keyboard = await kb.paintings(collection_id)
 
     await callback.message.answer(
-        text, reply_markup=keyboard, parse_mode="HTML", disable_web_page_preview=True
+        text,
+        reply_markup=keyboard,
+        parse_mode="HTML",
+        disable_web_page_preview=True,
     )
 
 
 @router.callback_query(F.data == "to_main_menu")
 async def to_main_menu_handler(callback: CallbackQuery):
-    await callback.message.answer("Вы в главном меню.", reply_markup=kb.main_keyboard)
+    await callback.message.answer("Вы в главном меню", reply_markup=kb.main_keyboard)
     await callback.answer()
 
 
 @router.callback_query(F.data == "to_all_collections")
 async def to_main_menu_handler(callback: CallbackQuery):
     await callback.message.answer(
-        "Выбор коллекции музея.", reply_markup=await kb.collections()
+        "Выбор коллекции музея", reply_markup=await kb.collections()
     )
     await callback.answer()
 
 
-# =====================================================================
+# =====================================================================================================================================
 # MAIN MENU - 2 [НАЙТИ КАРТИНУ ПО НАЗВАНИЮ]
-# =====================================================================
+# =====================================================================================================================================
 
 
 @router.message(F.text == "Найти картину по названию")
 async def ask_painting_name(message: Message, state: FSMContext):
     await message.answer(
-        "🖼️ Теперь отправьте название картины.",
+        "🖼️ Теперь отправьте название картины",
         reply_markup=kb.main_keyboard,
         callback_data="search_by_name",
     )
@@ -202,7 +205,7 @@ async def painting_name_sent(message: Message, state: FSMContext):
 
 @router.callback_query(F.data == "to_search_by_name")
 async def back_to_search_by_name(callback: CallbackQuery, state: FSMContext):
-    await callback.message.answer("🖼️ Теперь отправьте название картины.")
+    await callback.message.answer("🖼️ Теперь отправьте название картины")
     await state.set_state("waiting_for_new_painting_name")
     await callback.answer()
 
@@ -263,9 +266,9 @@ async def painting_name_sent(message: Message, state: FSMContext):
     await state.clear()
 
 
-# =====================================================================
+# =====================================================================================================================================
 # MAIN MENU - 3 [НАЙТИ КАРТИНУ ПО ФОТОГРАФИИ]
-# =====================================================================
+# =====================================================================================================================================
 
 
 # FSM-состояния
@@ -274,22 +277,42 @@ class PhotoSearchState(StatesGroup):
     waiting_for_photo = State()
 
 
-@router.message(F.text == "Найти картину по фотографии")
+@router.message(F.text == 'Найти картину по фотографии')
 async def ask_collection_for_photo_search(message: Message, state: FSMContext):
     await message.answer(
-        "Выберите коллекцию для поиска:", reply_markup=await kb.collections(mode="photo")
+        '<b>[ ! ] Поиск по фото в коллекции "Русская иконопись XVII - начала ХХ века" временно недоступен.</b>\n\n'
+        'Выберите коллекцию для поиска:',
+        reply_markup=await kb.collections(mode="photo"),
+        parse_mode="HTML",
     )
+
     await state.set_state(PhotoSearchState.choosing_collection)
 
 
 @router.callback_query(
-    F.data.startswith("photo_collection_"), StateFilter(PhotoSearchState.choosing_collection)
+    F.data.startswith('photo_collection_'), StateFilter(PhotoSearchState.choosing_collection)
 )
 async def collection_chosen_for_photo(callback: CallbackQuery, state: FSMContext):
-    collection_id = int(callback.data.split("_")[2])  # теперь индекс 2
+    collection_id = int(callback.data.split('_')[2])  # теперь индекс 2
     await state.update_data(collection_id=collection_id)
+# Блокировка выбора 3 коллекции
+    if collection_id == 3:
+        await callback.answer()
+        await callback.message.answer(
+            '<b>[ ! ] Поиск по фото в коллекции "Русская иконопись XVII - начала ХХ века" временно недоступен.</b>\n\n'
+            'Выберите коллекцию для поиска:',
+            reply_markup=await kb.collections(mode="photo"),
+            parse_mode="HTML",
+        )
+        # нет прехедода в состояние ожидания фото, бот остаётся в choosing_collection
+        return
 
-    await callback.message.answer("📷 Теперь отправьте фотографию картины.")
+    collection_name = COLLECTION_NAMES.get(collection_id)
+
+    await callback.message.answer(
+        f"Вы выбрали коллекцию: <b>{collection_name}</b>", parse_mode="HTML"
+    )
+    await callback.message.answer('📷 Теперь отправьте фотографию картины')
     await state.set_state(PhotoSearchState.waiting_for_photo)
     await callback.answer()
 
@@ -310,9 +333,19 @@ async def handle_photo_with_collection(message: Message, state: FSMContext, bot:
 
         print(f"Файл загружен: {file_path}")
 
-        # Предсказание и поиск
-        painting_prediction_name = predict_class(file_path, collection_id)
-        print(f"Распознанная картина: {painting_prediction_name}")
+        # НОВОЕ, картина не отправляется пользователю, если она была распознана с точностью ниже пороговой
+        painting_prediction_name, confidence = predict_class(file_path, collection_id)
+
+        if painting_prediction_name is None:
+            await message.answer(
+                f"Картина не распознана с достаточной точностью."
+                f"({confidence:.1%}).\n"
+                f"Попробуйте отправить другое фото.",
+                reply_markup=kb.main_keyboard,
+            )
+            return
+
+        print(f"Распознанная картина: {painting_prediction_name} с уверенностью {confidence:.1%}")
         painting_id = await rq.get_painting_id_by_prediction(painting_prediction_name)
 
         if painting_id:
@@ -322,41 +355,41 @@ async def handle_photo_with_collection(message: Message, state: FSMContext, bot:
                     inline_keyboard=[
                         [
                             InlineKeyboardButton(
-                                text="⬅️ Найти другую картину по фотографии",
-                                callback_data="to_search_by_photo",
+                                text='⬅️ Найти другую картину по фотографии',
+                                callback_data='to_search_by_photo',
                             )
                         ]
                     ]
                 )
 
                 caption = (
-                    f"<b><i>{painting_data.name}</i></b>\n\n"
-                    f"<i>{painting_data.author}</i>\n"
-                    f"<i>{painting_data.year}</i>\n"
-                    f"<i>{painting_data.material}</i>\n"
-                    f"<i>{painting_data.size}</i>\n\n"
-                    f"<i>{painting_data.image_page_link}</i>"
+                    f'<b><i>{painting_data.name}</i></b>\n\n'
+                    f'<i>{painting_data.author}</i>\n'
+                    f'<i>{painting_data.year}</i>\n'
+                    f'<i>{painting_data.material}</i>\n'
+                    f'<i>{painting_data.size}</i>\n\n'
+                    f'<i>{painting_data.image_page_link}</i>'
                 )
 
                 await message.answer_photo(
-                    photo=painting_data.image, caption=caption, parse_mode="HTML"
+                    photo=painting_data.image,
+                    caption=caption,
+                    parse_mode="HTML",
                 )
 
                 if painting_data.audio:
                     await message.answer_audio(
                         audio=painting_data.audio,
-                        caption=f"Все аудиолекции доступны по ссылке: {painting_data.audio_page_link}\n",
+                        caption=f'Все аудиолекции доступны по ссылке: {painting_data.audio_page_link}\n',
                     )
 
                 await message.answer(
-                    f"<blockquote>{painting_data.description}</blockquote>",
+                    f'<blockquote>{painting_data.description}</blockquote>',
                     parse_mode="HTML",
                     reply_markup=keyboard,
                 )
             else:
-                await message.answer(
-                    "Картину найти не удалось в базе.", reply_markup=kb.main_keyboard
-                )
+                await message.answer("Картину найти не удалось в базе.", reply_markup=kb.main_keyboard)
         else:
             await message.answer("Картина не распознана.", reply_markup=kb.main_keyboard)
 
@@ -372,10 +405,17 @@ async def handle_photo_with_collection(message: Message, state: FSMContext, bot:
 
 
 # Обработка кнопки "Найти другую картину по фотографии"
-@router.callback_query(F.data == "to_search_by_photo")
+@router.callback_query(F.data == 'to_search_by_photo')
 async def to_photo_search_again(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer(
-        "Выберите коллекцию для поиска:", reply_markup=await kb.collections(mode="photo")
+        '<b>[ ! ] Поиск по фото в коллекции "Русская иконопись XVII - начала ХХ века" временно недоступен.</b>\n\n'
+        'Выберите коллекцию для поиска:',
+        reply_markup=await kb.collections(mode="photo"),
+        parse_mode="HTML",
     )
+
     await state.set_state(PhotoSearchState.choosing_collection)
     await callback.answer()
+
+
+# =====================================================================================================================================
