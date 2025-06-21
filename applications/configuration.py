@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-BOT_TOKEN = '7623605344:AAEPY67yvCqcLCLolAMTGOQzW9RPBljlK3w'
+BOT_TOKEN = 'your_bot_token'
 
 DB_PATH = BASE_DIR / 'db.sqlite3'
 
@@ -12,9 +12,9 @@ MODEL_PATH_2 = BASE_DIR / 'models' / 'model_2.h5'
 MODEL_PATH_4 = BASE_DIR / 'models' / 'model_4.keras'
 MODEL_PATH_5 = BASE_DIR / 'models' / 'model_5.h5'
 
-DATASET_PATH = BASE_DIR / 'datasets' / '4' / 'ds_5'
-VALIDATION_DATASET_PATH = BASE_DIR / 'datasets' / '4' / 'ds_5_validation'
-TEST_DATASET_PATH = BASE_DIR / 'datasets' / '4' / 'ds_5_test'
+DATASET_PATH = BASE_DIR / 'datasets' / '№' / 'ds_№'
+VALIDATION_DATASET_PATH = BASE_DIR / 'datasets' / '№' / 'ds_№_validation'
+TEST_DATASET_PATH = BASE_DIR / 'datasets' / '№' / 'ds_№_test'
 
 model_1 = load_model(MODEL_PATH_1)
 model_2 = load_model(MODEL_PATH_2)
