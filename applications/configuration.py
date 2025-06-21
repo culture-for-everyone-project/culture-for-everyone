@@ -12,9 +12,13 @@ MODEL_PATH_2 = BASE_DIR / 'models' / 'model_2.h5'
 MODEL_PATH_4 = BASE_DIR / 'models' / 'model_4.keras'
 MODEL_PATH_5 = BASE_DIR / 'models' / 'model_5.h5'
 
+"""
+Пути к датасетам для обучения модели
+
 DATASET_PATH = BASE_DIR / 'datasets' / '№' / 'ds_№'
 VALIDATION_DATASET_PATH = BASE_DIR / 'datasets' / '№' / 'ds_№_validation'
 TEST_DATASET_PATH = BASE_DIR / 'datasets' / '№' / 'ds_№_test'
+"""
 
 model_1 = load_model(MODEL_PATH_1)
 model_2 = load_model(MODEL_PATH_2)
