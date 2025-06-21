@@ -1,8 +1,9 @@
 import logging
 import numpy as np
 import tensorflow as tf
-from models.models_config import MODELS
+from applications.configuration import MODELS
 from models.class_labels import CLASS_LABELS
+
 
 logging.basicConfig(level=logging.INFO)
 
@@ -14,21 +15,29 @@ def get_img_array(img_path, size=(224, 224)):
     return tf.keras.applications.mobilenet_v2.preprocess_input(array)
 
 
-def predict_class(img_path: str, collection_id: int):
+def predict_class(img_path: str, collection_id: int, threshold: float = 0.65): # порог 0.65
     try:
         img_array = get_img_array(img_path)
         model = MODELS.get(collection_id)
         if model is None:
             logging.error(f"Модель для коллекции {collection_id} не найдена.")
-            return "Не удалось распознать изображение."
-        prediction = model.predict(img_array)
+            return None, 0.0
+
+        prediction = model.predict(img_array)[0]
         class_index = np.argmax(prediction)
+        confidence = float(prediction[class_index])
+
+        if confidence < threshold:
+            return None, confidence
+
         class_label = CLASS_LABELS.get(collection_id)
         if class_label is None:
             logging.error(f"Метки классов для коллекции {collection_id} не найдены.")
-            return "Не удалось распознать изображение."
+            return None, confidence
+
         painting_class_label = class_label[class_index]
-        return painting_class_label
+        return painting_class_label, confidence
+
     except Exception as e:
         logging.error(f"Ошибка предсказания: {e}")
-        return "Не удалось распознать изображение."
+        return None, 0.0
